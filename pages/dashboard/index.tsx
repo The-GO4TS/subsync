@@ -21,17 +21,6 @@ import {auth, UserContext} from "@/pages/firebase";
 import {useRouter} from "next/router";
 import {Card, Grid, Text, Link, Progress, Button, Input} from "@nextui-org/react";
 import SearchBar from "../search";
-import { auth, UserContext } from "@/pages/firebase";
-import { useRouter } from "next/router";
-import {
-  Card,
-  Grid,
-  Text,
-  Link,
-  Progress,
-  Button,
-  Input,
-} from "@nextui-org/react";
 
 import styles from "../../styles/Dashboard.module.css";
 import { Location, Person } from "akar-icons";
