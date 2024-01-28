@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, SelectPicker, Button, Panel, List } from 'rsuite';
+import { Input, SelectPicker, Button, Panel, List, Row, Col } from 'rsuite';
 
 // Sample product data
 interface Product {
@@ -16,63 +16,80 @@ const products: Product[] = [
 ];
 
 const SearchBar: React.FC = () => {
-    const [keyword, setKeyword] = useState<string>('');
-    const [category, setCategory] = useState<string>('');
+    const [zip, setZip] = useState<string>('');
+    const [term, setTerm] = useState<string>('');
+    const [year, setYear] = useState<string>('');
+    const [roommatesCount, setRoommatesCount] = useState<string>('');
+    const [budget, setBudget] = useState<string>('');
+
+
     const [searchResults, setSearchResults] = useState<Product[]>([]);
 
     const handleSearch = () => {
         // Filter products based on keyword and category
         const results = products.filter(
             (product) =>
-                product.name.toLowerCase().includes(keyword.toLowerCase()) &&
-                (category === '' || product.category === category)
+                product.name.toLowerCase().includes(zip.toLowerCase()) &&
+                (term === '' || product.category === term)
         );
         setSearchResults(results);
     };
 
     return (
         <Panel header={<h3 className="searchBar">Filter</h3>} bordered collapsible shaded>
-            <div style={{ marginBottom: 16}}>
-                <Input
-                    style={{ marginBottom: 5}}
-                    placeholder="Enter Zip Code"
-                    value={keyword}
-                    onChange={(value) => setKeyword(value)}
-                />
-                <SelectPicker
-                    style={{ marginBottom: 5}}
-                    data={[
-                        { value: '', label: 'All Terms' },
-                        { value: 'Fall', label: 'Fall' },
-                        { value: 'Spring', label: 'Spring' },
-                        { value: 'Summer', label: 'Summer' },
-                    ]}
-                    placeholder="Select Term"
-                    value={category}
-                    onChange={(value) => setCategory(value)}
-                />
-                <Input
-                    style={{ marginBottom: 5}}
-                    placeholder="Enter Year"
-                    value={keyword}
-                    onChange={(value) => setKeyword(value)}
-                />
-                <Input
-                    style={{ marginBottom: 5}}
-                    placeholder="Enter Number of Roommates"
-                    value={keyword}
-                    onChange={(value) => setKeyword(value)}
-                />
-                <Input
-                    style={{ marginBottom: 5}}
-                    placeholder="Enter Budget $"
-                    value={keyword}
-                    onChange={(value) => setKeyword(value)}
-                />
-                <Button appearance="primary" onClick={handleSearch}>
-                    Search
-                </Button>
-            </div>
+            <Row style={{ marginBottom: 16}}>
+                <Col>
+                    <Input
+                        style={{ marginBottom: 5, width: 200}}
+                        placeholder="Enter Zip Code"
+                        value={zip}
+                        onChange={(value) => setZip(value)}
+                    />
+                </Col>
+                <Col>
+                    <SelectPicker
+                        style={{ marginBottom: 5}}
+                        data={[
+                            { value: '', label: 'All Terms' },
+                            { value: 'Fall', label: 'Fall' },
+                            { value: 'Spring', label: 'Spring' },
+                            { value: 'Summer', label: 'Summer' },
+                        ]}
+                        placeholder="Select Term"
+                        value={term}
+                        onChange={(value) => setTerm(value)}
+                    />
+                </Col>
+                <Col>
+                    <Input
+                        style={{ marginBottom: 5}}
+                        placeholder="Enter Year"
+                        value={year}
+                        onChange={(value) => setYear(value)}
+                    />
+                </Col>
+                <Col>
+                    <Input
+                        style={{ marginBottom: 5}}
+                        placeholder="Enter # of Roommates"
+                        value={roommatesCount}
+                        onChange={(value) => setRoommatesCount(value)}
+                    />
+                </Col>
+                <Col>
+                    <Input
+                        style={{ marginBottom: 5}}
+                        placeholder="Enter Budget $"
+                        value={budget !== '' ? '$' + budget : undefined}
+                        onChange={(value) => setBudget(value.replace('$', ''))}
+                    />
+                </Col>
+                <Col>
+                    <Button appearance="primary" onClick={handleSearch}>
+                        Search
+                    </Button>
+                </Col>
+            </Row>
 
             {searchResults.length > 0 ? (
                 <List hover>

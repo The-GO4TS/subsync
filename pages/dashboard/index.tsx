@@ -176,8 +176,8 @@ export default function dashboard() {
           <Content>
             <div>
               <h1>Featured-leases:</h1>
-                <div>
-                    <SearchBar></SearchBar>
+                <div className={styles["filterBar"]}>
+                    <SearchBar />
                 </div>
               <div className={styles["card-list"]}>
                 <CourseCard2 setSidepanelIsActive={setSidepanelIsActive} />

@@ -81,3 +81,7 @@
 .sidepanel.active{
     right: 0;
 }
+
+.filterBar {
+   margin: 20px;
+}
