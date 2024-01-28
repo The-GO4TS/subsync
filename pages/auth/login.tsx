@@ -1,4 +1,4 @@
-import {Input, Button, Container, Card, Text, Spacer, Row, Checkbox} from '@nextui-org/react';
+import {Input, Button, Container, Card, Text, Spacer, Row, Checkbox, S} from '@nextui-org/react';
 import {useContext, useEffect, useState} from "react";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import {auth} from "@/pages/firebase";
