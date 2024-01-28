@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import { Input, SelectPicker, Button, Panel, List, Row, Col } from 'rsuite';
 
 // Sample product data
-interface Product {
+interface Listing {
     id: number;
-    name: string;
-    category: string;
+    zipcode: string;
+    term: string;
+    year: string;
+    roommateCount: string;
+    budget: string;
 }
 
-const products: Product[] = [
-    { id: 1, name: 'Product A', category: 'Electronics' },
-    { id: 2, name: 'Product B', category: 'Clothing' },
-    { id: 3, name: 'Product C', category: 'Electronics' },
+const products: Listing[] = [
+    // { id: 1, name: 'Product A', category: 'Electronics' },
+    // { id: 2, name: 'Product B', category: 'Clothing' },
+    // { id: 3, name: 'Product C', category: 'Electronics' },
     // Add more products as needed
 ];
 
