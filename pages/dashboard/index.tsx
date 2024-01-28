@@ -23,7 +23,7 @@ import {Card, Grid, Text, Link, Progress, Button, Input} from "@nextui-org/react
 import SearchBar from "../search";
 
 import styles from "../../styles/Dashboard.module.css";
-import { Location, Person } from "akar-icons";
+import { Location, Person, XSmall } from "akar-icons";
 import CIcon from "@coreui/icons-react";
 import { cilBed } from "@coreui/icons";
 
@@ -42,6 +42,8 @@ function handleSignOut() {
       console.log(error);
     });
 }
+
+
 
 export default function dashboard() {
   const [sidepanelIsActive, setSidepanelIsActive] = useState(false);
@@ -63,12 +65,12 @@ export default function dashboard() {
     return null;
   }
 
-
-
-
   return (
     <Container style={{ height: "100vh" }} className={"mainContainer"}>
-      <SidePanelCustom sidepanelIsActive={sidepanelIsActive} setSidepanelIsActive={setSidepanelIsActive}/>
+      <SidePanelCustom
+        sidepanelIsActive={sidepanelIsActive}
+        setSidepanelIsActive={setSidepanelIsActive}
+      />
       <Sidebar
         style={{
           display: "flex",
@@ -164,10 +166,10 @@ export default function dashboard() {
             }}
           >
             <Input size="lg" placeholder="Search Anything" />
-            <Button flat size="lg" auto>
+            {/* <Button flat size="lg" auto>
               {" "}
               Help{" "}
-            </Button>
+            </Button> */}
           </Stack>
         </Header>
         Your journey to find your new abode begins here.
@@ -291,16 +293,21 @@ function CourseCard2({ setSidepanelIsActive }) {
 }
 
 function SidePanelCustom({ sidepanelIsActive, setSidepanelIsActive }) {
-  const sidepanelClass = sidepanelIsActive ? styles["active"] : '';
+  const sidepanelClass = sidepanelIsActive ? styles["active"] : "";
 
   const handleClick = () => {
     setSidepanelIsActive(false);
   };
 
+  return (
+    <div>
+      <div className={`${sidepanelClass} ${styles["sidepanel"]}`}>
+  
+        <XSmall strokeWidth={2} size={36} onClick={handleClick} styles={{ cursor: 'pointer' }} />
 
-  return <div className={`${sidepanelClass} ${styles["sidepanel"]}`}>
-    <button onClick={handleClick}>exit</button>
-
-  </div>;
+        
+      </div>
+      <div className={`${sidepanelClass} ${styles["sidepanelbg"]}`} onClick={handleClick}></div>
+    </div>
+  );
 }
-
