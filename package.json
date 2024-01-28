@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coreui/icons": "^3.0.1",
+    "@coreui/icons-react": "^2.2.1",
     "@next/font": "13.1.6",
     "@nextui-org/react": "^1.0.0-beta.12",
     "@rsuite/icons": "^1.0.2",
@@ -16,6 +18,7 @@
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
     "axios": "^1.6.7",
+    "akar-icons": "^1.9.30",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.6",
     "firebase": "^9.23.0",
