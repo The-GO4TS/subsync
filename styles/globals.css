@@ -130,3 +130,7 @@ body {
 .card{
   background: azure;
 }
+
+.searchBar {
+  color: black;
+}
