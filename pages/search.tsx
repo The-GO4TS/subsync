@@ -20,6 +20,7 @@ const listings: Listing[] = [
 
 const SearchBar: React.FC = () => {
     const [zip, setZip] = useState<string>('');
+    const [radius, setRadius] = useState<string>('');
     const [term, setTerm] = useState<string>('');
     const [year, setYear] = useState<string>('');
     const [roommatesCount, setRoommatesCount] = useState<string>('');
@@ -42,14 +43,25 @@ const SearchBar: React.FC = () => {
         <Panel header={<h3 className="searchBar">Filter</h3>} bordered collapsible shaded>
             <Row style={{ marginBottom: 16}}>
                 <Col>
+                    <h6>Zip Code</h6>
                     <Input
-                        style={{ marginBottom: 5, width: 200}}
+                        style={{ marginBottom: 5, width: 120}}
                         placeholder="Enter Zip Code"
                         value={zip}
                         onChange={(value) => setZip(value)}
                     />
                 </Col>
                 <Col>
+                    <h6>Radius</h6>
+                    <Input
+                        style={{ marginBottom: 5, width: 107}}
+                        placeholder="Enter Radius"
+                        value={radius}
+                        onChange={(value) => setRadius(value)}
+                    />
+                </Col>
+                <Col>
+                    <h6>Term</h6>
                     <SelectPicker
                         style={{ marginBottom: 5}}
                         data={[
@@ -64,14 +76,16 @@ const SearchBar: React.FC = () => {
                     />
                 </Col>
                 <Col>
+                    <h6>Year</h6>
                     <Input
-                        style={{ marginBottom: 5}}
+                        style={{ marginBottom: 5, width: 90}}
                         placeholder="Enter Year"
                         value={year}
                         onChange={(value) => setYear(value)}
                     />
                 </Col>
                 <Col>
+                    <h6>Roommate Count</h6>
                     <Input
                         style={{ marginBottom: 5}}
                         placeholder="Enter # of Roommates"
@@ -80,6 +94,7 @@ const SearchBar: React.FC = () => {
                     />
                 </Col>
                 <Col>
+                    <h6>Budget</h6>
                     <Input
                         style={{ marginBottom: 5}}
                         placeholder="Enter Budget $"
@@ -88,6 +103,7 @@ const SearchBar: React.FC = () => {
                     />
                 </Col>
                 <Col>
+                    <br/>
                     <Button appearance="primary" onClick={handleSearch}>
                         Search
                     </Button>
