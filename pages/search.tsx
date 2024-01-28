@@ -12,8 +12,10 @@ interface Listing {
 }
 
 const listings: Listing[] = [
-    {id: 1, zipcode: '77433', term: 'Fall', year: '2024', roommateCount: '3', budget: '$800'},
-
+    {id: 1, zipcode: '77433', term: 'Fall', year: '2024', roommateCount: '0', budget: '$800'},
+    {id: 2, zipcode: '77479', term: 'Spring', year: '2024', roommateCount: '1', budget: '$600'},
+    {id: 3, zipcode: '77840', term: 'Summer', year: '2024', roommateCount: '2', budget: '$1000'},
+    {id: 4, zipcode: '77079', term: '', year: '2024', roommateCount: '', budget: '$400'},
 ];
 
 const SearchBar: React.FC = () => {
@@ -24,14 +26,14 @@ const SearchBar: React.FC = () => {
     const [budget, setBudget] = useState<string>('');
 
 
-    const [searchResults, setSearchResults] = useState<Product[]>([]);
+    const [searchResults, setSearchResults] = useState<Listing[]>([]);
 
     const handleSearch = () => {
         // Filter products based on keyword and category
-        const results = products.filter(
-            (product) =>
-                product.name.toLowerCase().includes(zip.toLowerCase()) &&
-                (term === '' || product.category === term)
+        const results = listings.filter(
+            (listing) =>
+                listing.term.toLowerCase().includes(term.toLowerCase()) &&
+                (listing.year === year)
         );
         setSearchResults(results);
     };
@@ -94,9 +96,9 @@ const SearchBar: React.FC = () => {
 
             {searchResults.length > 0 ? (
                 <List hover>
-                    {searchResults.map((product) => (
-                        <List.Item key={product.id}>
-                            <b>{product.name}</b> - {product.category}
+                    {searchResults.map((listing) => (
+                        <List.Item key={listing.id}>
+                            <b>{listing.zipcode}</b> - {listing.budget}
                         </List.Item>
                     ))}
                 </List>

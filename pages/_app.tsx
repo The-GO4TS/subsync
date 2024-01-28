@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return(
     <AuthProvider>
-      <CustomProvider theme="dark">
+      <CustomProvider theme="light">
         <Component {...pageProps} />
       </CustomProvider>
     </AuthProvider>
