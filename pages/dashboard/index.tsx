@@ -2,11 +2,14 @@ import {Container, Header, Sidebar, Sidenav, Content, Navbar, Nav, Divider, Stac
 import DashboardIcon from '@rsuite/icons/Dashboard';
 import GroupIcon from '@rsuite/icons/legacy/Group';
 import MagicIcon from '@rsuite/icons/legacy/Magic';
-import React, {useContext, useEffect} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import SignOut from "@rsuite/icons/legacy/SignOut";
-import {auth, UserContext} from "@/pages/firebase";
+import {auth, db} from "@/pages/firebase";
 import {useRouter} from "next/router";
 import {Card, Grid, Text, Link, Progress, Button, Input} from "@nextui-org/react";
+import { getDoc, doc } from "firebase/firestore";
+import {IdMapping} from "@rsuite/icons";
+import Layout from '../Layout';
 
 
 function handleSignOut(){
@@ -29,16 +32,18 @@ function handleSignOut(){
 
 export default function dashboard() {
     const [expand, setExpand] = React.useState(true);
+
     // @ts-ignore
     const router = useRouter();
 
+
+
     useEffect(() => {
-        if (auth.currentUser) {
-            console.log("signed in!");
-        } else if (auth.currentUser == null) {
+        if (!auth.currentUser) {
             router.push("/auth/login");
+            return;
         }
-    }, [auth.currentUser]);
+    }, []);
 
     if (!auth.currentUser) {
         // user is signed out or still being checked.
@@ -49,61 +54,7 @@ export default function dashboard() {
 
 
     return (
-        <Container style={{height: "100vh"}} className={"mainContainer"}>
-            <Sidebar
-                style={{ display: 'flex', flexDirection: 'column' , background: "#c01c1c"}}
-                width={expand ? 260 : 56}
-
-                collapsible
-            >
-                <Sidenav.Header>
-                    <div>
-                        <img src="/subsync-logo.png" alt="Fincent Logo" width={"220px"} style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', margin: "20px" }} />
-                    </div>
-                </Sidenav.Header>
-                <Sidenav expanded={expand} defaultOpenKeys={['3']} appearance="subtle">
-                    <Sidenav.Body>
-                        <Nav>
-                            <Nav.Item eventKey="1" active icon={<DashboardIcon />}>
-                                Dashboard
-                            </Nav.Item>
-                            <Nav.Item eventKey="2" icon={<GroupIcon />}>
-                                Quick Swipe
-                            </Nav.Item>
-                            <Nav.Menu
-                                eventKey="3"
-                                trigger="hover"
-                                title="Actions"
-                                icon={<MagicIcon />}
-                                placement="rightStart"
-                            >
-                                <Nav.Item eventKey="3-1">Some Page 1</Nav.Item>
-                                <Nav.Item eventKey="3-2">Some Page 2</Nav.Item>
-                            </Nav.Menu>
-                            <Nav.Item eventKey="4" style={{color:"#ffffff", background: "rgba(0,0,0,0.15)"}} icon={<SignOut />}
-                                onClick = { () => {
-                                    handleSignOut();
-                                    router.push('auth/login');
-                                }}
-                            >
-                                Signout
-                            </Nav.Item>
-                            {(auth.currentUser) ? <div color={"#fff"}> <Divider/>
-                                <Stack
-                                    style={{padding: "10px"}}
-                                    direction={"row"}
-                                    spacing={20}
-                                    justifyContent={"center"}
-                                >
-                                    <Avatar circle src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEjAmPDFrWgiA7up5qpo0my3SdUrkGB1paLDONlqXnemIPtxiaFTs9WuEMXU192JBvDgc&usqp=CAU" alt="@superman66" />
-                                    <h6 style={{color: "#fff"}}>{auth.currentUser.email}</h6>
-                                </Stack>
-                                <Divider/> </div> : null}
-                        </Nav>
-                    </Sidenav.Body>
-                </Sidenav>
-            </Sidebar>
-
+        <Layout>
             <Container style={{padding: "20px", overflowY: "auto"}}>
                 <Header>
                     <h2 style={{ float: "left"}}>Welcome to your dashboard, <b style={{color:"#c01c1c"}}>{"Dinesh"}</b></h2>
@@ -138,7 +89,7 @@ export default function dashboard() {
                     </div>
                 </div>
             </Container>
-        </Container>
+        </Layout>
 
     );
 };

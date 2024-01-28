@@ -3,15 +3,18 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { CustomProvider } from 'rsuite';
 import {AuthProvider} from "./FirebaseAuthContext";
+import {NextUIProvider} from "@nextui-org/system";
 
 
 export default function App({ Component, pageProps }: AppProps) {
 
   return(
     <AuthProvider>
-      <CustomProvider theme="dark">
+        <NextUIProvider>
+        <CustomProvider theme="dark">
         <Component {...pageProps} />
       </CustomProvider>
+        </NextUIProvider>
     </AuthProvider>
   );
 }
