@@ -1,0 +1,107 @@
+.listing-card{
+    display:flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+
+.listing-card .image{
+    height: 200px;
+  
+    background-size: cover; /* This will make the image cover the entire div */
+    background-position: center;
+    transition: all 1s ease-in; 
+}
+
+
+
+.listing-card .image:hover{
+    height: 300px;
+}
+
+.listing-card .content{
+    background-color: white;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    flex:auto;
+}
+
+
+.listing-card .content .middle{
+    flex:auto;
+    
+}
+
+.listing-card .content .middle div{
+    display: flex;
+    align-items: center; /* Center vertically */
+    gap:10px;
+    margin-bottom: 10px;
+}
+
+.listing-card .content .footer{
+
+
+    display: flex;
+    width: auto;
+    font-weight: 1000;
+    justify-content: space-between;
+
+}
+
+
+.card-list{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+}
+
+
+
+.sidepanel{
+
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    top: 0; /* You can adjust the top value if needed */
+    right: -30%;
+    z-index: 100;
+    background-color: white;
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease-in-out;
+}
+
+
+.sidepanel.active{
+    right: 0;
+}
+
+
+.filterBar {
+   margin: 20px;
+}
+
+.sidepanelbg{
+    display:block;
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(48, 48, 48);
+    opacity: 0%;
+    z-index: -1;
+    transition: all 0.5s ease-in-out;
+}
+
+
+.sidepanelbg.active{
+    display:block;
+    opacity:20%;
+    z-index: 20;
+}
