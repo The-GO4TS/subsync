@@ -16,11 +16,10 @@ export default function Login() {
                 alignItems="center"
                 justify="center"
                 css={{ minHeight: '100vh' }}
-                className={"authContainer"}
             >
                 <center>
-                    <Card style={{flexDirection: "row", width: "fit-content", padding: "30px", background: "rgba(255,255,255,0.85)", justifyContent: "self", paddingTop: "30px"}}>
-                        <img src="/subsync-logo.png" alt="Fincent Logo" height="200" style={{margin: "30px"}}/>
+                    <Card style={{flexDirection: "row", width: "fit-content", padding: "30px", background: "rgba(10,10,10,0.76)", justifyContent: "self", paddingTop: "30px", marginBottom: "100px"}}>
+                        <img src="/subsync-logo.png" alt="Fincent Logo" height="300" style={{margin: "30px"}}/>
                         <Card css={{ mw: '420px', p: '20px' }} variant="bordered">
                             <Text
                                 size={24}
@@ -88,15 +87,12 @@ export default function Login() {
                             >Sign in</Button>
                             <Spacer y={1} />
                             <Button
-                                color = "secondary"
+                                style={ {background: "#c01c1c"}}
                                 onClick={() => {
                                     router.push("/auth/register");
                                 }}
                             >Sign up</Button>
                         </Card>
-                    </Card>
-                    <Card style={{flexDirection: "row", width: "fit-content", padding: "30px", background: "rgba(255,255,255,0.85)", justifyContent: "self", marginTop: 20,paddingTop: "30px"}}>
-                        <Button size={"xl"} color={"primary"} shadow bordered >Continue to Demo (Preview)</Button>
                     </Card>
                 </center>
             </Container>

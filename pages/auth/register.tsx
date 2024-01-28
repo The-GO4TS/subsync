@@ -20,11 +20,10 @@ export default function Register() {
                 alignItems="center"
                 justify="center"
                 css={{ minHeight: '100vh' }}
-                className={"authContainer"}
             >
                 <center>
-                    <Card style={{flexDirection: "row", width: "fit-content", padding: "30px", background: "rgba(255,255,255,0.85)", justifyContent: "self", paddingTop: "30px"}}>
-                        <img src="https://i.ibb.co/sqjPGDt/logo-no-background.png" alt="Fincent Logo" height="200" style={{margin: "30px"}}/>
+                    <Card style={{flexDirection: "row", width: "fit-content", padding: "30px", background: "rgba(10,10,10,0.76)", justifyContent: "self", paddingTop: "30px", marginBottom: "100px"}}>
+                        <img src="/subsync-logo.png" alt="Fincent Logo" height="300" style={{margin: "30px"}}/>
                         <Card css={{ mw: '420px', p: '20px' }} variant="bordered">
                             <Text
                                 size={24}

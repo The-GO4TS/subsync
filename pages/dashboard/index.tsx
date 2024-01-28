@@ -49,7 +49,7 @@ export default function dashboard() {
 
 
     return (
-        <Container style={{height: "100vh", background: "#fff"}}>
+        <Container style={{height: "100vh"}} className={"mainContainer"}>
             <Sidebar
                 style={{ display: 'flex', flexDirection: 'column' , background: "#c01c1c"}}
                 width={expand ? 260 : 56}
@@ -80,7 +80,7 @@ export default function dashboard() {
                                 <Nav.Item eventKey="3-1">Some Page 1</Nav.Item>
                                 <Nav.Item eventKey="3-2">Some Page 2</Nav.Item>
                             </Nav.Menu>
-                            <Nav.Item eventKey="4" style={{color:"#c90000", background: "rgba(255,0,0,0.15)"}} icon={<SignOut />}
+                            <Nav.Item eventKey="4" style={{color:"#ffffff", background: "rgba(0,0,0,0.15)"}} icon={<SignOut />}
                                 onClick = { () => {
                                     handleSignOut();
                                     router.push('auth/login');
@@ -122,7 +122,7 @@ export default function dashboard() {
                         <div className={"leftDiv"}>
                             <h1>Featured-leases:</h1>
                             <Stack style={{padding: "10px"}} direction={"row"} spacing={20} justifyContent={"flex-start"} wrap>
-                                <CourseCard name={"Budgeting"} description={"Understanding the basics of income and expenses, tracking your spending, and creating a budget that works for you."} image={"https://www.shutterstock.com/image-vector/financial-accounting-flat-lay-concept-600w-1851115834.jpg"}/>
+                                <CourseCard  name={"Budgeting"} description={"Understanding the basics of income and expenses, tracking your spending, and creating a budget that works for you."} image={"https://www.shutterstock.com/image-vector/financial-accounting-flat-lay-concept-600w-1851115834.jpg"}/>
                                 <CourseCard name={"Saving"} description={"The importance of saving, developing a savings plan, and tips for growing your savings."} image={"https://www.shutterstock.com/image-vector/family-couple-saving-money-man-600w-1675928638.jpg"}/>
                                 <CourseCard name={"Investing"} description={"Understanding different types of investments, diversifying your portfolio, and making informed investment decisions."} image={"https://www.shutterstock.com/image-vector/business-investment-profit-flat-vector-600w-1518184076.jpg"}/>
                             </Stack>
@@ -149,7 +149,7 @@ function CourseCard ( props: { name: string;
     image: string; } ) {
 
     return(
-            <Card css={{ p: "$6", mw: "400px" }} style={{background: "rgba(197,197,197,0.13)", boxShadow: "50px"}}  >
+            <Card css={{ p: "$6", mw: "400px" }} style={{background: "rgb(255,255,255)", boxShadow: "50px"}}  >
                 <Card.Header>
                     <img
                         alt="nextui logo"
