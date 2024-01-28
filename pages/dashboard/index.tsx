@@ -7,6 +7,7 @@ import SignOut from "@rsuite/icons/legacy/SignOut";
 import {auth, UserContext} from "@/pages/firebase";
 import {useRouter} from "next/router";
 import {Card, Grid, Text, Link, Progress, Button, Input} from "@nextui-org/react";
+import SearchBar from "../search";
 
 
 function handleSignOut(){
@@ -121,6 +122,9 @@ export default function dashboard() {
                     <Content>
                         <div className={"leftDiv"}>
                             <h1>Featured-leases:</h1>
+                            <div>
+                                <SearchBar></SearchBar>
+                            </div>
                             <Stack style={{padding: "10px"}} direction={"row"} spacing={20} justifyContent={"flex-start"} wrap>
                                 <CourseCard  name={"Budgeting"} description={"Understanding the basics of income and expenses, tracking your spending, and creating a budget that works for you."} image={"https://www.shutterstock.com/image-vector/financial-accounting-flat-lay-concept-600w-1851115834.jpg"}/>
                                 <CourseCard name={"Saving"} description={"The importance of saving, developing a savings plan, and tips for growing your savings."} image={"https://www.shutterstock.com/image-vector/family-couple-saving-money-man-600w-1675928638.jpg"}/>
