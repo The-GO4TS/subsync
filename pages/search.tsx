@@ -11,11 +11,9 @@ interface Listing {
     budget: string;
 }
 
-const products: Listing[] = [
-    // { id: 1, name: 'Product A', category: 'Electronics' },
-    // { id: 2, name: 'Product B', category: 'Clothing' },
-    // { id: 3, name: 'Product C', category: 'Electronics' },
-    // Add more products as needed
+const listings: Listing[] = [
+    {id: 1, zipcode: '77433', term: 'Fall', year: '2024', roommateCount: '3', budget: '$800'},
+
 ];
 
 const SearchBar: React.FC = () => {
