@@ -83,6 +83,11 @@
     right: 0;
 }
 
+
+.filterBar {
+   margin: 20px;
+}
+
 .sidepanelbg{
     display:block;
     position:absolute;

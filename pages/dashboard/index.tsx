@@ -17,17 +17,10 @@ import GroupIcon from "@rsuite/icons/legacy/Group";
 import MagicIcon from "@rsuite/icons/legacy/Magic";
 import React, { useContext, useEffect, useState } from "react";
 import SignOut from "@rsuite/icons/legacy/SignOut";
-import { auth, UserContext } from "@/pages/firebase";
-import { useRouter } from "next/router";
-import {
-  Card,
-  Grid,
-  Text,
-  Link,
-  Progress,
-  Button,
-  Input,
-} from "@nextui-org/react";
+import {auth, UserContext} from "@/pages/firebase";
+import {useRouter} from "next/router";
+import {Card, Grid, Text, Link, Progress, Button, Input} from "@nextui-org/react";
+import SearchBar from "../search";
 
 import styles from "../../styles/Dashboard.module.css";
 import { Location, Person, XSmall } from "akar-icons";
@@ -185,6 +178,9 @@ export default function dashboard() {
           <Content>
             <div>
               <h1>Featured-leases:</h1>
+                <div className={styles["filterBar"]}>
+                    <SearchBar />
+                </div>
               <div className={styles["card-list"]}>
                 <CourseCard2 setSidepanelIsActive={setSidepanelIsActive} />
                 <CourseCard2 setSidepanelIsActive={setSidepanelIsActive} />
